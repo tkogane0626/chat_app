@@ -1,0 +1,48 @@
+version: "3"
+
+services:
+  frontend:
+    container_name: chat_app_frontend
+    build:
+      context: .
+      target: frontend
+    ports:
+      - "3001:3001"
+    command: npm run dev -- --host 0.0.0.0
+    working_dir: /app/frontend
+    volumes:
+      - ./frontend:/app/frontend
+      - node_modules:/app/frontend/node_modules
+
+  backend:
+    container_name: chat_app_backend
+    build:
+      context: .
+      target: backend
+    ports:
+      - "3000:3000"
+    command: rails server -b 0.0.0.0
+    working_dir: /app/backend
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./backend:/app/backend
+      - node_modules:/app/backend/node_modules
+
+  db:
+    container_name: chat_app_db
+    image: mysql:8
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=chat_app
+      - MYSQL_PASSWORD=password
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  node_modules:
+  db:
