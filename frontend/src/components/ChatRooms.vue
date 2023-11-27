@@ -30,7 +30,7 @@ export default {
   methods: {
     fetchChatRooms() {
       axios
-        .get('http://localhost:3000/rooms')
+        .get(`${import.meta.env.VITE_API_URL}/rooms`)
         .then(response => {
           this.chatRooms = response.data;
         })
@@ -39,9 +39,10 @@ export default {
         });
     },
     createRoom() {
-      axios.post('http://localhost:3000/rooms', {
-        name: this.newRoomName,
-      })
+      axios
+        .post(`${import.meta.env.VITE_API_URL}/rooms`, {
+          name: this.newRoomName,
+        })
         .then(response => {
           this.chatRooms.push(response.data);
           this.newRoomName = '';
