@@ -916,7 +916,7 @@ Style/ArrayJoin:
   Enabled: true
 
 Style/AsciiComments:
-  Enabled: true
+  Enabled: false
 
 Style/Attr:
   Enabled: true
