@@ -1,7 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+# Creating chat room data
+Room.create(name: 'General')
+Room.create(name: 'Random')
+
+# Creating message data
+Message.create(content: 'Hello!', sender_name: 'John', room: Room.first)
+Message.create(content: 'Hi!', sender_name: 'Jane', room: Room.first)
+Message.create(content: 'How are you?', sender_name: 'John', room: Room.first)
+Message.create(content: 'Fine, thanks!', sender_name: 'Jane', room: Room.first)

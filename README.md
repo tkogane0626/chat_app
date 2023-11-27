@@ -38,9 +38,8 @@ $ docker compose up
 
 ### DBのセットアップ
 
-以下のコマンドを実行して、DBの作成とマイグレーションを実施します。
+以下のコマンドを実行して、DBの作成とマイグレーションの実行、初期データの投入を実施します。
 
 ```bash
-$ docker exec chat_app_backend rails db:create
-$ docker exec chat_app_backend rails db:migrate
+$ docker exec chat_app_backend rails db:setup
 ```
