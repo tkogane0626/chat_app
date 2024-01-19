@@ -1945,7 +1945,7 @@ RSpec/NestedGroups:
   Enabled: true
 
 RSpec/NoExpectationExample:
-  Enabled: true
+  Enabled: false
 
 RSpec/NotToNot:
   Enabled: true
